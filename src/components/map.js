@@ -16,25 +16,25 @@ const tileWidth = 256;
 
 function Map() {
   const [zoomLevel, setZoomLevel] = useState(1);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [position, setPosition] = useState({ top: 0, right: 0 });
   const segmentCount = zoomLevel * 2;
 
   const handleZoomChange = (e, newValue) => {
     setZoomLevel(newValue);
     const newPos = tileWidth * (newValue - 1) * -1;
-    setPosition({ top: newPos, left: newPos });
+    setPosition({ top: newPos, right: newPos });
   };
 
   const handleTopChange = (e, newValue) => {
     if (zoomLevel <= 1) return null;
     const newPos = newValue * -1;
-    setPosition({ top: newPos, left: position.left });
+    setPosition({ top: newPos, right: position.right });
   };
 
-  const handleLeftChange = (e, newValue) => {
+  const handleRightChange = (e, newValue) => {
     if (zoomLevel <= 1) return null;
     const newPos = newValue * -1;
-    setPosition({ top: position.top, left: newPos });
+    setPosition({ top: position.top, right: newPos });
   };
 
   const getImages = () => {
@@ -58,7 +58,7 @@ function Map() {
       <Header>Tiled Image</Header>
       <Fade duration={2000}>
         <MapContainer>
-          <MapInner style={{ top: position.top, left: position.left }}>
+          <MapInner style={{ top: position.top, right: position.right }}>
             {getImages()}
           </MapInner>
         </MapContainer>
@@ -90,8 +90,8 @@ function Map() {
 
         <Slider
           style={{ width: 100 }}
-          value={position.left * -1}
-          onChange={handleLeftChange}
+          value={position.right * -1}
+          onChange={handleRightChange}
           disabled={zoomLevel === 1}
           min={0}
           max={zoomLevel * tileWidth}
