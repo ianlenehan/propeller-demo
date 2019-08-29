@@ -62,11 +62,11 @@ const SiteTitle = styled.div`
 `;
 
 const LogoBox = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 10px;
+  margin-left: 15px;
 `;
 
 const InnerLogoBox = styled.div`

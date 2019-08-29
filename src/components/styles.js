@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const MapContainer = styled.div`
+  flex-grow: 5;
   display: flex;
   width: 512px;
   height: 512px;
@@ -34,9 +35,8 @@ export const ZoomBox = styled(Box)`
 `;
 
 export const PanBox = styled(Box)`
-  position: absolute;
-  right: 160px;
-  bottom: 420px;
+  width: 130px;
+  margin-left: 20px;
 
   article {
     margin-bottom: 5px;

@@ -57,11 +57,37 @@ function Map() {
     <Layout>
       <Header>Tiled Image</Header>
       <Fade duration={2000}>
-        <MapContainer>
-          <MapInner style={{ top: position.top, right: position.right }}>
-            {getImages()}
-          </MapInner>
-        </MapContainer>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ width: 130, marginRight: 30 }} />
+          <MapContainer>
+            <MapInner style={{ top: position.top, right: position.right }}>
+              {getImages()}
+            </MapInner>
+          </MapContainer>
+          <PanBox>
+            <article>Pan Controls</article>
+            <Slider
+              style={{ height: 100, marginBottom: 20 }}
+              orientation="vertical"
+              value={position.top * -1}
+              onChange={handleTopChange}
+              disabled={zoomLevel === 1}
+              min={0}
+              max={zoomLevel * tileWidth}
+              aria-labelledby="continuous-slider"
+            />
+
+            <Slider
+              style={{ width: 100 }}
+              value={position.right * -1}
+              onChange={handleRightChange}
+              disabled={zoomLevel === 1}
+              min={0}
+              max={zoomLevel * tileWidth}
+              aria-labelledby="continuous-slider"
+            />
+          </PanBox>
+        </div>
       </Fade>
       <ZoomBox>
         <span>Slide to Zoom</span>
@@ -75,29 +101,6 @@ function Map() {
           aria-labelledby="continuous-slider"
         />
       </ZoomBox>
-      <PanBox>
-        <article>Pan Controls</article>
-        <Slider
-          style={{ height: 100, marginBottom: 20 }}
-          orientation="vertical"
-          value={position.top * -1}
-          onChange={handleTopChange}
-          disabled={zoomLevel === 1}
-          min={0}
-          max={zoomLevel * tileWidth}
-          aria-labelledby="continuous-slider"
-        />
-
-        <Slider
-          style={{ width: 100 }}
-          value={position.right * -1}
-          onChange={handleRightChange}
-          disabled={zoomLevel === 1}
-          min={0}
-          max={zoomLevel * tileWidth}
-          aria-labelledby="continuous-slider"
-        />
-      </PanBox>
     </Layout>
   );
 }
