@@ -90,7 +90,7 @@ function Map() {
         </div>
       </Fade>
       <ZoomBox>
-        <span>Slide to Zoom</span>
+        <article>Slide to Zoom</article>
 
         <Slider
           style={{ width: 100 }}

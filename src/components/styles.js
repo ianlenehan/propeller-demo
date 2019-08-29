@@ -40,6 +40,7 @@ export const PanBox = styled(Box)`
 
   article {
     margin-bottom: 5px;
+    text-align: center;
   }
 `;
 
