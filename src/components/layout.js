@@ -2,14 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Navigation from "./navigation";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
 const Page = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,10 +15,10 @@ const Page = styled.div`
 
 function Layout({ children }) {
   return (
-    <Container>
+    <div>
       <Navigation />
       <Page>{children}</Page>
-    </Container>
+    </div>
   );
 }
 
